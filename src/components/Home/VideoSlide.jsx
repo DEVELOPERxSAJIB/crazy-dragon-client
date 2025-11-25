@@ -27,7 +27,7 @@ const VideoSlide = ({ src }) => {
         ref={videoRef}
         src={src}
         style={{
-          height: "500px",
+          height: "430px",
           width: "100vw",
           objectFit: "cover",
         }}
@@ -56,8 +56,7 @@ const VideoSlide = ({ src }) => {
           onClick={handlePause}
           className="absolute inline z-30 bottom-0 top-0 right-0 left-0 p-3 text-white"
         >
-          <Pause size={60} className="absolute mx-auto left-0 right-0 p-4 bg-black/60 rounded-full" />
-          <h2 className="block text-transparent">SEE HOW WE PREPARE YOUR MEAL</h2>
+          <Pause size={60} className="absolute cursor-pointer mx-auto left-0 right-0 p-4 bg-black/60 rounded-full" />
         </button>
       )}
     </div>

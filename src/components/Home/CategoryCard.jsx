@@ -73,7 +73,7 @@ const CategoryCard = () => {
       <div className="max-w-7xl mx-auto w-full">
         <div className="text-center">
           <h2 className="text-[24px] md:text-4xl font-bold mt-4 mb-12 text-gray-900">
-            Our Menu
+            Discover Our Menu
           </h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">

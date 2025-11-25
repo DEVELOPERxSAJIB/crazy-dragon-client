@@ -1,4 +1,3 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -7,102 +6,121 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import HomeSlider from "../components/Home/HomeSlider";
 
 // import required modules
-import slide1 from "../assets/slide/slide_home_3.jpg";
 import slide2 from "../assets//slide/Pasja_Restaurant.mp4";
 
-import {
-  Utensils,
-  Bike,
-  Timer,
-  Star,
-  Truck,
-  ClockPlus,
-  Handbag,
-} from "lucide-react";
-import { useState } from "react";
+import { Truck, ClockPlus, Handbag } from "lucide-react";
 import FoodList from "../components/Home/FoodList";
 import CategoryCard from "../components/Home/CategoryCard";
 import VideoSlide from "../components/Home/VideoSlide";
-
-const categories = [
-  "All",
-  "Grilled Sandwiches",
-  "Beef Burgers",
-  "Wraps",
-  "Pasta",
-  "Rice & Sides",
-  "Chicken Wings",
-  "Fish",
-  "Kids Menu",
-  "Sauces",
-  "Drinks",
-];
+import Ratings from "../components/Ratings/Ratings";
 
 const popularDishes = [
   {
     name: "Cheese Pizza",
-    img: "/images/foods/f1.jpg",
-    price: "$12.50",
+    img: "https://joyfoodsunshine.com/wp-content/uploads/2023/04/best-cheese-pizza-recipe-1.jpg",
+    regularPrice: "$15.00",
+    offerPrice: "$12.50",
+    desc: "Delicious cheese pizza with a crispy crust and gooey cheese topping.",
   },
   {
     name: "Beef Burger",
-    img: "/images/foods/f2.jpg",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgU-Y-luDvhVbxIwWPait2BvhXAwZz1NoVtg&s",
     price: "$9.20",
+    regularPrice: "$12.00",
+    offerPrice: "",
+  },
+  {
+    name: "Beef Burger",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgU-Y-luDvhVbxIwWPait2BvhXAwZz1NoVtg&s",
+    price: "$9.20",
+    regularPrice: "$12.00",
+    offerPrice: "",
   },
   {
     name: "Chicken Biryani",
-    img: "/images/foods/f3.jpg",
+    img: "https://burmawalakitchen.com/wp-content/uploads/2024/05/Chicken-65-Biryani-3-768x1024.jpg",
     price: "$7.80",
+  },
+  {
+    name: "Beef Burger",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgU-Y-luDvhVbxIwWPait2BvhXAwZz1NoVtg&s",
+    price: "$9.20",
+    regularPrice: "$12.00",
+    offerPrice: "",
+  },
+  {
+    name: "Chicken Biryani",
+    img: "https://burmawalakitchen.com/wp-content/uploads/2024/05/Chicken-65-Biryani-3-768x1024.jpg",
+    price: "$7.80",
+  },
+  {
+    name: "Beef Burger",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgU-Y-luDvhVbxIwWPait2BvhXAwZz1NoVtg&s",
+    price: "$9.20",
+    regularPrice: "$12.00",
+    offerPrice: "",
+  },
+  {
+    name: "Chicken Biryani",
+    img: "https://burmawalakitchen.com/wp-content/uploads/2024/05/Chicken-65-Biryani-3-768x1024.jpg",
+    price: "$7.80",
+  },
+  {
+    name: "Cheese Pizza",
+    img: "https://joyfoodsunshine.com/wp-content/uploads/2023/04/best-cheese-pizza-recipe-1.jpg",
+    regularPrice: "$15.00",
+    offerPrice: "$12.50",
+    desc: "Delicious cheese pizza with a crispy crust and gooey cheese topping.",
+  },
+  {
+    name: "Beef Burger",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgU-Y-luDvhVbxIwWPait2BvhXAwZz1NoVtg&s",
+    price: "$9.20",
+    regularPrice: "$12.00",
+    offerPrice: "",
   },
 ];
 
 const Home = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // Handle category button click
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-  };
-
   return (
     <>
       {/* HERO SLIDER */}
       <HomeSlider />
 
       <div className="slider-card">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-7xl px-4 my-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-7xl px-4 my-20">
           {/* Home Delivery */}
-          <div className="flex flex-col md:flex-row flex-1 items-center gap-6 bg-stone-200 py-2 px-6 rounded-3xl shadow-md">
-            <Truck size={80} color="#480A4C" />
-            <div className="flex flex-col justify-between md:p-4 leading-normal">
-              <h5 className="text-[20px] font-semibold py-2">Home Delivery</h5>
-              <p className="text-body">
+          <div className="flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-purple-100 via-purple-50 to-purple-100 py-6 px-8 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <Truck size={80} color="#5A1E5A" />
+            <div className="flex flex-col justify-center md:p-4">
+              <h5 className="text-[22px] font-bold text-gray-900 mb-2">
+                Home Delivery
+              </h5>
+              <p className="text-gray-700 text-[15px]">
                 Order online to get the food at your doorstep
               </p>
             </div>
           </div>
 
           {/* Dine-in */}
-          <div className="flex flex-col md:flex-row flex-1 items-center gap-6 bg-[#480A4C] py-2 px-6 rounded-3xl shadow-md">
+          <div className="flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-[#5A1E5A] via-[#702870] to-[#480A4C] py-6 px-8 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <ClockPlus size={70} color="#fff" />
-            <div className="flex flex-col justify-between md:p-4 leading-normal">
-              <h5 className="text-[20px] text-white font-semibold py-2">
-                Dine-in
-              </h5>
-              <p className="text-white">
+            <div className="flex flex-col justify-center md:p-4">
+              <h5 className="text-[22px] text-white font-bold mb-2">Dine-in</h5>
+              <p className="text-gray-200 text-[15px]">
                 Everything you order will be served hot & fresh
               </p>
             </div>
           </div>
 
           {/* Take Away */}
-          <div className="flex flex-col md:flex-row flex-1 items-center gap-6 bg-[#292D35] py-2 px-6 rounded-3xl shadow-md">
+          <div className="flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-gray-800 via-gray-900 to-black py-6 px-8 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <Handbag size={80} color="#fff" />
-            <div className="flex flex-col justify-between md:p-4 leading-normal">
-              <h5 className="text-[20px] font-semibold py-2 text-white">
+            <div className="flex flex-col justify-center md:p-4">
+              <h5 className="text-[22px] font-bold text-white mb-2">
                 Take Away
               </h5>
-              <p className="text-white">
+              <p className="text-gray-300 text-[15px]">
                 Take away your favorite dishes when you are on the move
               </p>
             </div>
@@ -111,190 +129,121 @@ const Home = () => {
       </div>
 
       <div className="pt-16 md:pt-12">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Section Title */}
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center">
-            {/* <span className="inline-block bg-[#28D5F3] text-[#fff] px-4 py-1 rounded-md text-sm tracking-wide font-semibold">
-                Category
-              </span> */}
-
-            <h2 className="text-[24px] md:text-4xl font-bold mt-4 text-gray-900">
-              Discover our categories
+            <h2 className="text-[24px] md:text-4xl font-bold text-gray-900">
+              Discover Our Categories
             </h2>
           </div>
-
-          <section className="mt-8">
-            <div className="card bg-transparent border-0 shadow-none">
-              <div className="card-body">
-                <div className="flex flex-wrap justify-center gap-1">
-                  {categories?.map((category) => (
-                    <button
-                      key={category}
-                      className={`cursor-pointer mr-5 text-[16px] font-medium text-bold ${
-                        selectedCategory === category
-                          ? "border-b-2 border-[#491648] text-gray-900"
-                          : "border-transparent border-b-2  text-gray-600 hover:text-gray-900"
-                      }`}
-                      onClick={() => handleCategoryClick(category)}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
           <FoodList />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:pt-20">
+      <div className="pt-16 md:pt-12">
+        <div className="max-w-full mx-auto">
+          <section className="mt-6 md:my-12">
+            <div
+              className="relative bg-cover bg-center py-24 md:py-48"
+              style={{
+                backgroundImage: `url('https://btthemesele.wpengine.com/kudil-elementor/wp-content/uploads/sites/5/2025/03/Menu-parallax-1.jpg')`,
+                backgroundAttachment: "",
+              }}
+            >
+              {/* Dark Overlay for contrast and mood (matches the image) */}
+              <div className="absolute inset-0 bg-black/0 opacity-80"></div>
+
+              {/* Content Container (centered) */}
+              <div className="relative z-10 container mx-auto text-center px-4">
+                <h2 className="text-white text-4xl md:text-[32px] font-extrabold uppercase">
+                  Prepared On Site With
+                </h2>
+                <h2 className="dancing-script text-[#f9f9f9] text-4xl md:text-[46px] font-bold">
+                  Halal Ingredients
+                </h2>
+                {/* Steps Layout (Flexbox for easy centering and responsiveness) */}
+                <div className="flex flex-col md:flex-row justify-center items-start space-y-12 md:space-y-0 md:space-x-10"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4">
         <CategoryCard />
       </div>
 
       <div className="max-w-full mx-auto pt-8 md:pt-20">
-       <VideoSlide src={slide2} />
-
-        {/* WHY CHOose US */}
-        <section className="my-20">
-          <div className="grid md:grid-cols-3 gap-10 text-center">
-            <div className="flex flex-col items-center">
-              <Bike size={50} className="text-[#491648] mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900">
-                Fast Delivery
-              </h3>
-              <p className="text-gray-600 mt-2">
-                Get your food delivered in minutes.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Utensils size={50} className="text-[#491648] mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900">
-                Fresh Food
-              </h3>
-              <p className="text-gray-600 mt-2">
-                Best quality meals from top restaurants.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Star size={50} className="text-[#491648] mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900">Top Rated</h3>
-              <p className="text-gray-600 mt-2">
-                Trusted by thousands of happy customers.
-              </p>
-            </div>
-          </div>
-        </section>
+        <VideoSlide src={slide2} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4">
-        {/* POPULAR DISHES */}
-        <section className="mb-14">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Popular Dishes
-          </h2>
+      <div className="pt-16 md:pt-24">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Section Title */}
+          <div className="text-center">
+            <h2 className="text-[24px] md:text-4xl font-bold mt-4 text-gray-900">
+              Our Popular Dishes
+            </h2>
+          </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {popularDishes.map((food) => (
-              <div
-                key={food.name}
-                className="bg-white rounded-xl border shadow hover:shadow-lg transition overflow-hidden"
-              >
-                <img src={food.img} className="w-full h-40 object-cover" />
+          <section className="mt-6 md:my-12">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {popularDishes?.slice?.(0, 8).map((food) => (
+                <div
+                  key={food.name}
+                  className="group bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Image */}
+                  <div className="relative">
+                    <img
+                      src={food.img}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition duration-500"
+                      alt={food.name}
+                    />
 
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {food.name}
-                  </h3>
-                  <p className="text-[#491648] font-semibold mt-1">
-                    {food.price}
-                  </p>
+                    {/* Price badge */}
+                    {food?.offerPrice ? (
+                      <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-lg">
+                        <span
+                          style={{ textDecoration: "line-through" }}
+                          className="text-gray-500 text-sm font-medium"
+                        >
+                          {food.regularPrice}
+                        </span>
+                        <span className="text-[#491648] text-sm font-bold">
+                          {food.offerPrice}
+                        </span>
+                      </div>
+                    ) : (
+                      <span className="absolute bottom-3 left-3 bg-[#491648] text-white text-sm font-semibold px-3 py-1 rounded-full shadow-lg">
+                        {food.regularPrice}
+                      </span>
+                    )}
+                  </div>
 
-                  <button className="mt-3 w-full py-2 rounded-lg bg-[#491648] text-white font-medium hover:bg-[#341034] transition">
-                    Add to Cart
-                  </button>
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="text-[16px] font-semibold text-gray-900 hover:text-[#491648] hover:cursor-pointer leading-snug">
+                      {food.name}
+                    </h3>
+
+                    <div className="flex items-center gap-3 mt-3">
+                      <Ratings size="md" />
+                      <p className="text-gray-500 text-[16px] font-normal line-clamp-2 p-0 mt-1">
+                        (03)
+                      </p>
+                    </div>
+
+                    {/* Add to cart button */}
+                    <button className="mt-3 w-full py-2.5 rounded-xl bg-[#491648] text-white font-semibold hover:bg-[#371236] transition-all duration-200 active:scale-95 shadow-md">
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* WHY CHOose US */}
-        <section className="my-20">
-          <div className="grid md:grid-cols-3 gap-10 text-center">
-            <div className="flex flex-col items-center">
-              <Bike size={50} className="text-[#491648] mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900">
-                Fast Delivery
-              </h3>
-              <p className="text-gray-600 mt-2">
-                Get your food delivered in minutes.
-              </p>
+              ))}
             </div>
-
-            <div className="flex flex-col items-center">
-              <Utensils size={50} className="text-[#491648] mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900">
-                Fresh Food
-              </h3>
-              <p className="text-gray-600 mt-2">
-                Best quality meals from top restaurants.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Star size={50} className="text-[#491648] mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900">Top Rated</h3>
-              <p className="text-gray-600 mt-2">
-                Trusted by thousands of happy customers.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* FOOTER */}
-      <footer className="bg-[#491648] text-white py-10">
-        <div className="max-w-7xl mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div>
-            <h3 className="font-bold mb-3 text-lg">Foodie</h3>
-            <p className="text-sm text-gray-200">
-              Your favorite food delivered fast at your door.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-3">Quick Links</h4>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>Home</li>
-              <li>Restaurants</li>
-              <li>About Us</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-3">Support</h4>
-            <ul className="space-y-2 text-gray-200 text-sm">
-              <li>Help Center</li>
-              <li>FAQ</li>
-              <li>Terms</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-3">Get in Touch</h4>
-            <p className="text-gray-200 text-sm">email@foodie.com</p>
-            <p className="text-gray-200 text-sm">+1 234 567 890</p>
-          </div>
+          </section>
         </div>
-        <p className="text-center text-gray-300 mt-10 text-sm">
-          © {new Date().getFullYear()} Foodie — All Rights Reserved.
-        </p>
-      </footer>
+      </div>
     </>
   );
 };
