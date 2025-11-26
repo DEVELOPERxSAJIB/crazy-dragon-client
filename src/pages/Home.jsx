@@ -127,6 +127,10 @@ const Home = () => {
         </div>
       </div>
 
+      {/* <div className="max-w-full mx-auto pt-8 md:pt-20">
+        <VideoSlide src={slide2} />
+      </div> */}
+
       <div id="order-section" className="pt-16 md:pt-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center">
@@ -140,7 +144,7 @@ const Home = () => {
 
       <div className="pt-16 md:pt-12">
         <div className="max-w-full mx-auto">
-          <section className="mt-6 md:my-12">
+          <section className="mt-6 md:mt-12">
             <div
               className="relative bg-cover bg-center py-24 md:py-48"
               style={{
@@ -167,17 +171,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4">
+      {/* <div className="max-w-7xl mx-auto px-4">
         <CategoryCard />
-      </div>
+      </div> */}
 
-      <div className="max-w-full mx-auto pt-8 md:pt-20">
-        <VideoSlide src={slide2} />
-      </div>
-
-      <div className="pt-16 md:pt-24">
+      {/* <div className="pt-16 md:pt-24">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Section Title */}
           <div className="text-center">
             <h2 className="text-[24px] md:text-4xl font-bold mt-4 text-gray-900">
               Our Popular Dishes
@@ -192,7 +191,6 @@ const Home = () => {
                   key={food.name}
                   className="group bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 >
-                  {/* Image */}
                   <div className="relative">
                     <img
                       src={food.img}
@@ -200,7 +198,6 @@ const Home = () => {
                       alt={food.name}
                     />
 
-                    {/* Price badge */}
                     {food?.offerPrice ? (
                       <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-lg">
                         <span
@@ -220,7 +217,6 @@ const Home = () => {
                     )}
                   </div>
 
-                  {/* Content */}
                   <div className="p-5">
                     <h3 className="text-[16px] font-semibold text-gray-900 hover:text-[#491648] hover:cursor-pointer leading-snug">
                       {food.name}
@@ -233,7 +229,6 @@ const Home = () => {
                       </p>
                     </div>
 
-                    {/* Add to cart button */}
                     <button className="mt-3 w-full py-2.5 rounded-xl bg-[#491648] text-white font-semibold hover:bg-[#371236] transition-all duration-200 active:scale-95 shadow-md">
                       Add to Cart
                     </button>
@@ -243,9 +238,9 @@ const Home = () => {
             </div>
           </section>
         </div>
-      </div>
+      </div> */}
 
-      <div className="pt-16 md:pt-24">
+      <div className="">
         <div className="bg-[#faf5ef72] rounded-lg overflow-hidden flex items-end justify-center h-96 relative pb-4">
           <iframe
             width="100%"
@@ -255,63 +250,6 @@ const Home = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2450.807220580942!2d4.2706967127671716!3d52.101439971837436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b0bd6e75a3e7%3A0xc6af5d9379bcead2!2sZeesluisweg%2018%2C%202583%20DR%20Den%20Haag%2C%20Netherlands!5e0!3m2!1sen!2sbd!4v1738283117384!5m2!1sen!2sbd"
             style={{ filter: "grayscale(0) contrast(1) opacity(0.9)" }}
           />
-          {/* <div className="bg-white flex flex-wrap py-6 rounded shadow-md absolute">
-          <div
-            style={{
-              borderTopRightRadius: "25px",
-              borderTopLeftRadius: "25px",
-              borderBottomRightRadius: "25px",
-              borderBottomLeftRadius: "0",
-            }}
-            className="bg-[#F0DECA] absolute -top-6 px-4 py-2 inline-block rounded-t-lg ml-0 md:ml-12"
-          >
-            <h4 className="font-semibold text-base">
-              Opening Hours
-            </h4>
-          </div>
-          <div className="w-1/2 px-6 mt-4 lg:mt-0">
-            <div className="grid grid-cols-1 gap-4 my-2">
-              <div className="flex justify-between">
-                <span className="font-semibold">
-                  Saturday
-                </span>
-                <span className="font-semibold">Closed</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Sunday</span>
-                <span>10 AM-6 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Monday:</span>
-                <span>10 AM-9 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Tuesday:</span>
-                <span>10 AM-9 PM</span>
-              </div>
-            </div>
-          </div>
-          <div className="w-1/2 px-6 mt-4 lg:mt-0">
-            <div className="grid grid-cols-1 gap-4 my-2">
-              <div className="flex justify-between">
-                <span>Wednesday:</span>
-                <span>10 AM-9 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Thusday:</span>
-                <span>10 AM-6 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Friday:</span>
-                <span>10AM - 6PM</span>
-              </div>
-            </div>
-            <h2 className="flex gap-2 opacity-0 md:opacity-100 items-center font-semibold tracking-widest text-xs mt-6">
-              <FaLocationDot size={20} className="flex-shrink-0" />
-              <p className="">Address -------</p>
-            </h2>
-          </div>
-        </div> */}
         </div>
       </div>
     </>
