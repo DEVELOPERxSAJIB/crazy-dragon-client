@@ -6,6 +6,7 @@ import { logOutUser } from "../../features/auth/authApiSlice";
 import AlertMessage from "../../utils/AlertMessage";
 import { setMessageEmpty } from "../../features/auth/authSlice";
 import LogoMain from "../../assets/logo/crazy.png";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 const Header = ({ cartItemCount = 0, onCartClick }) => {
   const dispatch = useDispatch();

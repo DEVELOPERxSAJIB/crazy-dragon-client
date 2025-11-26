@@ -27,7 +27,7 @@ const VideoSlide = ({ src }) => {
         ref={videoRef}
         src={src}
         style={{
-          height: "430px",
+          height: "470px",
           width: "100vw",
           objectFit: "cover",
         }}

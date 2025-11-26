@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
 import { Plus } from "lucide-react";
 import { menuData } from "../../constant/data";
+import LocationPopup from "../../utils/LocationPopup";
+import { Link } from "react-router-dom";
 
 const getPriceValue = (price) => {
   if (!price && price !== 0) return NaN;
@@ -37,6 +39,7 @@ const FoodList = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const filterAndSort = (items) => {
     // filter by search
@@ -214,11 +217,12 @@ const FoodList = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {cat.items.map((item, index) => (
-                    <div
+                    <Link
+                    to={`/product/${item?.name}`}
                       key={index}
                       className="
                         flex justify-between items-center
-                        bg-white/80 backdrop-blur rounded-2xl border border-gray-200
+                        bg-white/80 backdrop-blur rounded-2xl border border-stone-50
                         p-5 shadow-sm hover:shadow-md hover:-translate-y-[2px]
                         transition-all duration-300
                       "
@@ -252,6 +256,7 @@ const FoodList = () => {
                         />
 
                         <button
+                          onClick={() => setIsOpen(true)}
                           className="
                             absolute bottom-2 right-2 bg-[#5A1E5A] text-white
                             rounded-full p-2 shadow-md
@@ -261,7 +266,7 @@ const FoodList = () => {
                           <Plus size={18} />
                         </button>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -274,11 +279,12 @@ const FoodList = () => {
       {selectedCategory !== "All" && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {currentItems.map((item, index) => (
-            <div
+            <Link
+            to={`/product/${item?.name}`}
               key={index}
               className="
                 flex justify-between items-center
-                bg-white/80 backdrop-blur rounded-2xl border border-gray-200
+                bg-white/80 backdrop-blur rounded-2xl border border-stone-50
                 p-5 shadow-sm hover:shadow-md hover:-translate-y-[2px]
                 transition-all duration-300
               "
@@ -310,6 +316,7 @@ const FoodList = () => {
                 />
 
                 <button
+                  onClick={() => setIsOpen(true)}
                   className="
                     absolute bottom-2 right-2 bg-[#5A1E5A] text-white
                     rounded-full p-2 shadow-md
@@ -319,9 +326,13 @@ const FoodList = () => {
                   <Plus size={18} />
                 </button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+      )}
+
+      {isOpen && (
+        <LocationPopup isOpen={isOpen} onClose={() => setIsOpen(false)} />
       )}
     </div>
   );

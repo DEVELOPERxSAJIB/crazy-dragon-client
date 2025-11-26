@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import CartSidebar from "../CartSidebar";
 import { useState } from "react";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 const Layouts = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -25,6 +26,7 @@ const Layouts = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Header
         cartItemCount={initialCartItems.reduce(
           (sum, item) => sum + item.quantity,

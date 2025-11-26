@@ -1,9 +1,9 @@
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes/route";
 import { ToastContainer } from "react-toastify";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
-
   return (
     <>
       <ToastContainer

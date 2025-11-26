@@ -1,8 +1,6 @@
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import HomeSlider from "../components/Home/HomeSlider";
 
 // import required modules
@@ -13,6 +11,7 @@ import FoodList from "../components/Home/FoodList";
 import CategoryCard from "../components/Home/CategoryCard";
 import VideoSlide from "../components/Home/VideoSlide";
 import Ratings from "../components/Ratings/Ratings";
+import { Link } from "react-router-dom";
 
 const popularDishes = [
   {
@@ -88,7 +87,7 @@ const Home = () => {
       <HomeSlider />
 
       <div className="slider-card">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-7xl px-4 my-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-7xl px-4 my-16">
           {/* Home Delivery */}
           <div className="flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-purple-100 via-purple-50 to-purple-100 py-6 px-8 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <Truck size={80} color="#5A1E5A" />
@@ -128,7 +127,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="pt-16 md:pt-12">
+      <div id="order-section" className="pt-16 md:pt-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center">
             <h2 className="text-[24px] md:text-4xl font-bold text-gray-900">
@@ -188,7 +187,8 @@ const Home = () => {
           <section className="mt-6 md:my-12">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {popularDishes?.slice?.(0, 8).map((food) => (
-                <div
+                <Link
+                to={`/product/${food?.name}`}
                   key={food.name}
                   className="group bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 >
@@ -238,10 +238,80 @@ const Home = () => {
                       Add to Cart
                     </button>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
+        </div>
+      </div>
+
+      <div className="pt-16 md:pt-24">
+        <div className="bg-[#faf5ef72] rounded-lg overflow-hidden flex items-end justify-center h-96 relative pb-4">
+          <iframe
+            width="100%"
+            height="100%"
+            className="absolute inset-0"
+            title="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2450.807220580942!2d4.2706967127671716!3d52.101439971837436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b0bd6e75a3e7%3A0xc6af5d9379bcead2!2sZeesluisweg%2018%2C%202583%20DR%20Den%20Haag%2C%20Netherlands!5e0!3m2!1sen!2sbd!4v1738283117384!5m2!1sen!2sbd"
+            style={{ filter: "grayscale(0) contrast(1) opacity(0.9)" }}
+          />
+          {/* <div className="bg-white flex flex-wrap py-6 rounded shadow-md absolute">
+          <div
+            style={{
+              borderTopRightRadius: "25px",
+              borderTopLeftRadius: "25px",
+              borderBottomRightRadius: "25px",
+              borderBottomLeftRadius: "0",
+            }}
+            className="bg-[#F0DECA] absolute -top-6 px-4 py-2 inline-block rounded-t-lg ml-0 md:ml-12"
+          >
+            <h4 className="font-semibold text-base">
+              Opening Hours
+            </h4>
+          </div>
+          <div className="w-1/2 px-6 mt-4 lg:mt-0">
+            <div className="grid grid-cols-1 gap-4 my-2">
+              <div className="flex justify-between">
+                <span className="font-semibold">
+                  Saturday
+                </span>
+                <span className="font-semibold">Closed</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Sunday</span>
+                <span>10 AM-6 PM</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Monday:</span>
+                <span>10 AM-9 PM</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Tuesday:</span>
+                <span>10 AM-9 PM</span>
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 px-6 mt-4 lg:mt-0">
+            <div className="grid grid-cols-1 gap-4 my-2">
+              <div className="flex justify-between">
+                <span>Wednesday:</span>
+                <span>10 AM-9 PM</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Thusday:</span>
+                <span>10 AM-6 PM</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Friday:</span>
+                <span>10AM - 6PM</span>
+              </div>
+            </div>
+            <h2 className="flex gap-2 opacity-0 md:opacity-100 items-center font-semibold tracking-widest text-xs mt-6">
+              <FaLocationDot size={20} className="flex-shrink-0" />
+              <p className="">Address -------</p>
+            </h2>
+          </div>
+        </div> */}
         </div>
       </div>
     </>
