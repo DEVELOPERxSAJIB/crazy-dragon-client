@@ -133,6 +133,18 @@ const Header = ({ cartItemCount = 0, onCartClick }) => {
                   {open && (
                     <div className="absolute right-0 mt-2 z-10 bg-white border border-gray-200 rounded-lg shadow-lg w-44">
                       <ul className="p-2 text-sm font-medium">
+                        {user?.role === "admin" && (
+                          <li>
+                            <Link
+                              to="/dashboard"
+                              onClick={() => setOpen(!open)}
+                              className="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:text-gray-900 rounded"
+                            >
+                              Dashboard
+                            </Link>
+                          </li>
+                        )}
+
                         <li>
                           <Link
                             to="/profile"
